@@ -6,7 +6,11 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductListPage from "./pages/ProductListPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-
+import UserProfilePage from "./pages/user/UserProfilePage";
+import UserOrdersPage from "./pages/user/UserOrdersPage";
+import UserCartDetailsPage from "./pages/user/UserCartDetailsPage";
+import UserOrderDetailsPage from "./pages/user/UserOrderDetailsPage";
+import ProtectedRoutesComponents from "./components/ProtectedRoutesComponents";
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +23,16 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="*" element="Page not found" />
+
+        <Route element={<ProtectedRoutesComponents />}>
+          <Route path="/user" element={<UserProfilePage />} />
+          <Route path="/user/my-orders" element={<UserOrdersPage />} />
+          <Route path="/user/cart-details" element={<UserCartDetailsPage />} />
+          <Route
+            path="/user/order-details"
+            element={<UserOrderDetailsPage />}
+          />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
