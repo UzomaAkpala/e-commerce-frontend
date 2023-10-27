@@ -1,6 +1,16 @@
 import { Outlet, Navigate } from "react-router-dom";
-function ProtectedRoutesComponents() {
-  const auth = true;
+
+function ProtectedRoutesComponents({ admin }) {
+  let auth = false;
+
+  if (admin) {
+    let adminAuth = false;
+
+    if (adminAuth) auth = true;
+  } else {
+    let userAuth = true;
+    if (userAuth) auth = true;
+  }
 
   return auth ? <Outlet /> : <Navigate to="/login" />;
 }
