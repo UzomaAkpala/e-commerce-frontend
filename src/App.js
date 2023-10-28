@@ -1,5 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+//components
+import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from "./components/FooterComponent";
+
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
@@ -28,6 +32,7 @@ import AdminUsersPage from "./pages/admin/AdminUsersPage";
 function App() {
   return (
     <BrowserRouter>
+      <HeaderComponent />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cart" element={<CartPage />} />
@@ -73,6 +78,7 @@ function App() {
           <Route path="/admin/users-page" element={<AdminUsersPage />} />
         </Route>
       </Routes>
+      <FooterComponent />
     </BrowserRouter>
   );
 }
