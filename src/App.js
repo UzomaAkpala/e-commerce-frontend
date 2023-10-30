@@ -80,7 +80,7 @@ function App() {
             element={<AdminOrderDetailsPage />}
           />
 
-          <Route path="/admin/order" element={<AdminOrdersPage />} />
+          <Route path="/admin/orders" element={<AdminOrdersPage />} />
 
           <Route path="/admin/products" element={<AdminProductsPage />} />
 
