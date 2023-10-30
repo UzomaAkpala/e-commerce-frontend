@@ -4,6 +4,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
 
+// user components
+import RoutesWithUserChatComponent from "./components/user/RoutesWithUserChatComponent";
+
+// publicly available messages
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
@@ -34,14 +38,17 @@ function App() {
     <BrowserRouter>
       <HeaderComponent />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/product-list" element={<ProductListPage />} />
-        <Route path="/product-details" element={<ProductDetailsPage />} />
-        <Route path="/product-details/:id" element={<ProductDetailsPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="*" element="Page not found" />
+        <Route element={<RoutesWithUserChatComponent />}>
+          {/* publicly available routes */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/product-list" element={<ProductListPage />} />
+          <Route path="/product-details" element={<ProductDetailsPage />} />
+          <Route path="/product-details/:id" element={<ProductDetailsPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="*" element="Page not found" />
+        </Route>
 
         <Route element={<ProtectedRoutesComponents admin={false} />}>
           <Route path="/user" element={<UserProfilePage />} />
@@ -52,6 +59,8 @@ function App() {
             element={<UserOrderDetailsPage />}
           />
         </Route>
+
+        {/* admin protected routes: */}
 
         <Route element={<ProtectedRoutesComponents admin={true} />}>
           <Route path="/admin/users" element={<AdminUsersPage />} />
