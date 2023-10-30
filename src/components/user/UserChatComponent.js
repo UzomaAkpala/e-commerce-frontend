@@ -8,6 +8,11 @@ function UserChatComponent() {
         <i className="bi bi-chat-dots comment"></i>
         <i class="bi bi-x-circle close"></i>
       </label>
+      <div className="chat-wrapper">
+        <div className="chat-header">
+          <h6>Let's Chat - Online</h6>
+        </div>
+      </div>
     </>
   );
 }
