@@ -1,5 +1,12 @@
+import ProductCarouselComponent from "../components/ProductCarouselComponent";
+import CategoryCardComponent from "../components/CategoryCardComponent";
 function HomePage() {
-  return <h1>This is the home page</h1>;
+  return (
+    <>
+      <ProductCarouselComponent />
+      <CategoryCardComponent />
+    </>
+  );
 }
 
 export default HomePage;
