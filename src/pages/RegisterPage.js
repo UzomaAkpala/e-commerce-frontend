@@ -6,6 +6,17 @@ import Spinner from "react-bootstrap/Spinner";
 function RegisterPage() {
   const [validated, setValidated] = useState(false);
 
+  function onChange() {
+    const password = document.querySelector("input[name=password]");
+    const confirm = document.querySelector("input[name=confirmPassword]");
+
+    if (confirm.value === password.value) {
+      confirm.setCustomValidity("");
+    } else {
+      confirm.setCustomValidity("Passwords do not match");
+    }
+  }
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -73,6 +84,7 @@ function RegisterPage() {
                 type="password"
                 placeholder="Password"
                 minLength={6}
+                onChange={onChange}
               />
               <Form.Control.Feedback type="invalid">
                 Please enter a valid password
@@ -87,6 +99,7 @@ function RegisterPage() {
                 type="password"
                 placeholder="Repeat Password"
                 minLength={6}
+                onChange={onChange}
               />
               <Form.Control.Feedback type="invalid">
                 Both passwords should match
