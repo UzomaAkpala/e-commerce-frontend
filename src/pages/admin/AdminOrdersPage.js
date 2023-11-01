@@ -1,15 +1,15 @@
-import { Row, Col } from "react-bootstrap";
-import Table from "react-bootstrap/Table";
+import { Row, Col, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import AdminLinksComponent from "../../components/admin/AdminLinksComponent";
 
-function AdminOrdersPage() {
+const AdminOrdersPage = () => {
   return (
     <Row className="m-5">
-      <Col md={2}>admin links</Col>
-
+        <Col md={2}>
+        <AdminLinksComponent />
+        </Col>
       <Col md={10}>
         <h1>Orders</h1>
-
         <Table striped bordered hover responsive>
           <thead>
             <tr>
@@ -26,9 +26,9 @@ function AdminOrdersPage() {
             {["bi bi-check-lg text-success", "bi bi-x-lg text-danger"].map(
               (item, idx) => (
                 <tr key={idx}>
-                  <td>{idx + 1}</td>
+                  <td>{idx +1}</td>
                   <td>Mark Twain</td>
-                  <td>2003-01-11</td>
+                  <td>2022-09-12</td>
                   <td>$124</td>
                   <td>
                     <i className={item}></i>
@@ -45,6 +45,7 @@ function AdminOrdersPage() {
       </Col>
     </Row>
   );
-}
+};
 
 export default AdminOrdersPage;
+
