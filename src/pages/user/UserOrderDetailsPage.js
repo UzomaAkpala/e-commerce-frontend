@@ -10,11 +10,11 @@ import {
 } from "react-bootstrap";
 import CartItemComponent from "../../components/CartItemComponent";
 
-function UserOrderDetailsPage() {
+function UserCartDetailsPage() {
   return (
     <Container fluid>
       <Row className="mt-4">
-        <h1>Order details</h1>
+        <h1>Cart details</h1>
         <Col md={8}>
           <br />
 
@@ -28,7 +28,7 @@ function UserOrderDetailsPage() {
 
             <Col md={6}>
               <h2>Payment method</h2>
-              <Form.Select disabled={false}>
+              <Form.Select>
                 <option value="pp"> PayPal</option>
                 <option value="cod">
                   {" "}
@@ -39,12 +39,13 @@ function UserOrderDetailsPage() {
             <Row>
               <Col>
                 <Alert className="mt-3" variant="danger">
-                  Not delivered
+                  Not delivered. In order to make order, fill out your profile
+                  with correct address, city etc.
                 </Alert>
               </Col>
               <Col>
                 <Alert className="mt-3" variant="success">
-                  Paid on 2023-10-31 Not delivered
+                  Not paid yet
                 </Alert>
               </Col>
             </Row>
@@ -93,4 +94,4 @@ function UserOrderDetailsPage() {
   );
 }
 
-export default UserOrderDetailsPage;
+export default UserCartDetailsPage;
